@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hun Whee Lee | Fisher College of Business</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #bb0000;
+      --red-soft: #f9eeee;
+      --dark: #111;
+      --body: #444;
+      --muted: #777;
+      --border: #e8e8e8;
+      --white: #fff;
+      --max: 860px;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Georgia', serif;
+      color: var(--body);
+      background: var(--white);
+      line-height: 1.75;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav ul {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 28px;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    nav ul li:first-child { margin-right: auto; }
+
+    nav a {
+      display: block;
+      padding: 16px 14px;
+      font-family: system-ui, sans-serif;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      transition: color .2s;
+    }
+
+    nav a:hover, nav a.on { color: var(--red); }
+    nav .brand { font-size: .9rem; letter-spacing: .02em; text-transform: none; color: var(--dark); font-weight: 700; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 120px 28px 80px;
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 2.6rem;
+      font-weight: normal;
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .hero-text .subtitle {
+      font-family: system-ui, sans-serif;
+      font-size: .95rem;
+      color: var(--red);
+      font-weight: 600;
+      letter-spacing: .02em;
+      margin-bottom: 6px;
+    }
+
+    .hero-text .inst {
+      font-family: system-ui, sans-serif;
+      font-size: .9rem;
+      color: var(--muted);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      font-family: system-ui, sans-serif;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 3px;
+      transition: all .18s;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+      border: 1.5px solid var(--red);
+    }
+    .btn-primary:hover { background: #990000; border-color: #990000; }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--red);
+      border: 1.5px solid var(--red);
+    }
+    .btn-outline:hover { background: var(--red); color: var(--white); }
+
+    .contact-info {
+      font-family: system-ui, sans-serif;
+      font-size: .83rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .contact-info a { color: var(--muted); text-decoration: none; }
+    .contact-info a:hover { color: var(--red); }
+
+    /* Photos */
+    .hero-photos {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .photo-main {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 4px solid var(--white);
+      box-shadow: 0 4px 24px rgba(0,0,0,.12);
+    }
+
+    .photo-secondary {
+      width: 140px;
+      height: 100px;
+      border-radius: 8px;
+      object-fit: cover;
+      object-position: top;
+      box-shadow: 0 2px 12px rgba(0,0,0,.1);
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 28px;
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 64px 28px;
+    }
+
+    section h2 {
+      font-family: system-ui, sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 28px;
+    }
+
+    section p {
+      font-size: 1rem;
+      color: var(--body);
+      margin-bottom: 1em;
+    }
+
+    section p:last-child { margin-bottom: 0; }
+
+    /* ── PILLS ── */
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .pill {
+      font-family: system-ui, sans-serif;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .03em;
+      padding: 5px 14px;
+      border-radius: 20px;
+      background: var(--red-soft);
+      color: var(--red);
+    }
+
+    /* ── CARD LIST ── */
+    .card-list { list-style: none; }
+
+    .card-list li {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 20px;
+      align-items: baseline;
+    }
+
+    .card-list li:last-child { border-bottom: none; }
+
+    .card-list .label {
+      font-family: system-ui, sans-serif;
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--muted);
+      min-width: 120px;
+      flex-shrink: 0;
+    }
+
+    .card-list .val {
+      font-size: .97rem;
+      color: var(--body);
+    }
+
+    .card-list .val em {
+      font-style: italic;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* ── AWARDS ── */
+    .award-grid {
+      display: grid;
+      gap: 0;
+    }
+
+    .award-item {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 16px;
+      align-items: baseline;
+    }
+
+    .award-item:last-child { border-bottom: none; }
+
+    .award-year {
+      font-family: system-ui, sans-serif;
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--red);
+      min-width: 44px;
+      flex-shrink: 0;
+    }
+
+    .award-text {
+      font-size: .95rem;
+      color: var(--body);
+    }
+
+    .award-org {
+      font-family: system-ui, sans-serif;
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    /* ── EDUCATION ── */
+    .edu-list { display: grid; gap: 20px; }
+
+    .edu-item h3 {
+      font-family: system-ui, sans-serif;
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 2px;
+    }
+
+    .edu-item .school {
+      font-family: system-ui, sans-serif;
+      font-size: .88rem;
+      color: var(--muted);
+    }
+
+    /* ── TEACHING ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: system-ui, sans-serif;
+      font-size: .9rem;
+    }
+
+    thead th {
+      font-size: .72rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+      padding: 0 12px 12px 0;
+      border-bottom: 2px solid var(--border);
+      text-align: left;
+    }
+
+    tbody td {
+      padding: 13px 12px 13px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--body);
+      vertical-align: top;
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover td { color: var(--dark); }
+
+    td.code {
+      font-weight: 700;
+      color: var(--dark);
+      white-space: nowrap;
+      width: 140px;
+    }
+
+    /* ── ROLES ── */
+    .role-list { list-style: none; display: grid; gap: 0; }
+    .role-item {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .role-item:last-child { border-bottom: none; }
+    .role-item .rtitle {
+      font-family: system-ui, sans-serif;
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .role-item .rorg {
+      font-family: system-ui, sans-serif;
+      font-size: .85rem;
+      color: var(--muted);
+    }
+
+    /* ── PUBLICATIONS ── */
+    .pub-list { list-style: none; counter-reset: pub-counter 30; }
+
+    .pub-item {
+      counter-increment: pub-counter -1;
+      padding: 18px 0 18px 48px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .pub-item:last-child { border-bottom: none; }
+
+    .pub-item::before {
+      content: counter(pub-counter);
+      position: absolute;
+      left: 0;
+      top: 20px;
+      font-family: system-ui, sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--red);
+      width: 28px;
+      text-align: right;
+    }
+
+    .pub-title {
+      font-size: .97rem;
+      color: var(--dark);
+      font-weight: normal;
+      line-height: 1.5;
+      margin-bottom: 4px;
+    }
+
+    .pub-authors {
+      font-family: system-ui, sans-serif;
+      font-size: .83rem;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+
+    .pub-authors strong { color: var(--body); }
+
+    .pub-venue {
+      font-family: system-ui, sans-serif;
+      font-size: .83rem;
+      color: var(--muted);
+    }
+
+    .pub-venue em { font-style: italic; color: var(--body); }
+
+    .pub-cite {
+      display: inline-block;
+      margin-left: 10px;
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--red);
+      background: var(--red-soft);
+      padding: 1px 7px;
+      border-radius: 10px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: #aaa;
+      text-align: center;
+      padding: 36px 28px;
+      font-family: system-ui, sans-serif;
+      font-size: .82rem;
+      line-height: 2;
+    }
+
+    footer a { color: #ccc; text-decoration: none; }
+    footer a:hover { color: var(--white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 100px;
+      }
+      .hero-photos { flex-direction: row; justify-content: center; }
+      .photo-main { width: 150px; height: 150px; }
+      .photo-secondary { width: 100px; height: 72px; }
+      .btn-row { justify-content: center; }
+      .hero-text h1 { font-size: 2rem; }
+      nav .brand { display: none; }
+      nav a { padding: 14px 8px; font-size: .75rem; }
+      .card-list li { flex-direction: column; gap: 4px; }
+      .card-list .label { min-width: unset; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <ul>
+    <li><a class="brand" href="#home">Hun Whee Lee</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="mailto:lee.7313@osu.edu">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div id="home" class="hero">
+  <div class="hero-text">
+    <h1>Hun Whee Lee</h1>
+    <p class="subtitle">Associate Professor &amp; Denman Scholar</p>
+    <p class="inst">
+      Management &amp; Human Resources<br>
+      Max M. Fisher College of Business<br>
+      The Ohio State University
+    </p>
+
+    <div class="btn-row">
+      <a class="btn btn-primary" href="Lee-CV_May_2026_Profile.pdf" target="_blank">CV</a>
+      <a class="btn btn-outline" href="https://scholar.google.com/citations?user=2Do1GJYAAAAJ&hl=en&num=20&oi=sra" target="_blank">Google Scholar</a>
+      <a class="btn btn-outline" href="https://www.researchgate.net/profile/Hun-Whee-Lee" target="_blank">ResearchGate</a>
+      <a class="btn btn-outline" href="https://fisher.osu.edu/people/lee.7313" target="_blank">OSU Profile</a>
+    </div>
+
+    <div class="contact-info">
+      <a href="mailto:lee.7313@osu.edu">lee.7313@osu.edu</a><br>
+      614-688-0278<br>
+      Fisher Hall, 2100 Neil Ave, Columbus, OH 43210
+    </div>
+  </div>
+
+  <div class="hero-photos">
+    <img class="photo-main" src="hunlee.jpg" alt="Hun Whee Lee">
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About</h2>
+  <p>
+    I am an Associate Professor of Management and Human Resources at the Fisher College of Business,
+    The Ohio State University, and the Richard J. and Martha D. Denman Scholar of Principled Leadership Studies.
+    My research focuses on how organizational leaders optimally leverage bottom-up contributions from their members.
+    My work has been published in the <em>Journal of Applied Psychology</em>, <em>Organizational Behavior and
+    Human Decision Processes</em>, <em>Personnel Psychology</em>, <em>Journal of Management</em>,
+    <em>Human Relations</em>, and <em>Human Resource Management</em>, and has been covered in media outlets
+    including the Harvard Business Review, the Wall Street Journal, and the New York Times.
+  </p>
+  <p>
+    Within the university, I serve as Research Director for the Fisher Leadership Initiative, Faculty Fellow
+    for Academic Leadership in the Office of Academic Affairs, and Faculty Affiliate of the Center on
+    Responsible AI and Governance (CRAIG). I also serve on the editorial boards of
+    <em>Organizational Behavior and Human Decision Processes</em> and the <em>Journal of Applied Psychology</em>.
+  </p>
+  <p>
+    I have organized multiple scholarly and professional events, including the inaugural Principled Leadership
+    Conference, industry-academic sessions on AI adoption, the inaugural Fisher AI in Business Conference,
+    and the inaugural Fisher AI Research Retreat.
+  </p>
+</section>
+
+<hr class="divider">
+
+<!-- RESEARCH -->
+<section id="research">
+  <h2>Research</h2>
+
+  <div class="pills">
+    <span class="pill">Artificial Intelligence</span>
+    <span class="pill">Ethics &amp; Leadership</span>
+    <span class="pill">Human Resources Management</span>
+    <span class="pill">Organizational Behavior</span>
+  </div>
+
+  <ul class="role-list">
+    <li class="role-item">
+      <div class="rtitle">Research Director</div>
+      <div class="rorg">Fisher Leadership Initiative, The Ohio State University</div>
+    </li>
+    <li class="role-item">
+      <div class="rtitle">Faculty Fellow — Academic Leadership</div>
+      <div class="rorg">Office of Academic Affairs, The Ohio State University</div>
+    </li>
+    <li class="role-item">
+      <div class="rtitle">Faculty Affiliate</div>
+      <div class="rorg">Center on Responsible AI and Governance (CRAIG)</div>
+    </li>
+    <li class="role-item">
+      <div class="rtitle">Editorial Board</div>
+      <div class="rorg">Organizational Behavior and Human Decision Processes</div>
+    </li>
+    <li class="role-item">
+      <div class="rtitle">Editorial Board</div>
+      <div class="rorg">Journal of Applied Psychology</div>
+    </li>
+  </ul>
+</section>
+
+<hr class="divider">
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <h2>Journal Articles</h2>
+  <ol class="pub-list">
+
+    <li class="pub-item">
+      <div class="pub-title">The paradox of structural empowerment: How and when structural empowerment fuels psychological entitlement and undermines resource sharing</div>
+      <div class="pub-authors"><strong>Lee, H. W.</strong></div>
+      <div class="pub-venue"><em>Journal of Applied Psychology</em> <span class="pub-cite">in press</span></div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">The hidden cost of decision-making autonomy at work: How task reflexivity and construal level induce mental fatigue</div>
+      <div class="pub-authors"><strong>Lee, H. W.</strong>, Liao, Z., Young, H., Ferris, L., Wang, N., &amp; Chen, N.</div>
+      <div class="pub-venue"><em>Personality and Social Psychology Bulletin</em> <span class="pub-cite">in press</span></div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">Catalysts for change: The impact of reflective conversations on leaders' hope and change-oriented behaviors</div>
+      <div class="pub-authors"><strong>Lee, H. W.</strong> &amp; Kim, S.</div>
+      <div class="pub-venue"><em>Personality and Social Psychology Bulletin</em>, 52, 470–493 · 2026</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">When employee gender diversity benefits collective performance: The importance of the proportion of women in top management teams</div>
+      <div class="pub-authors"><strong>Lee, H. W.</strong>, Kim, J., Lee, H., Triana, M., &amp; Choi, J. N.</div>
+      <div class="pub-venue"><em>Personnel Psychology</em>, 3, 305–330 · 2025</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">Dancing in tandem: The role of HR value congruence and line manager–HR manager collaboration in effective HR implementation</div>
+      <div class="pub-authors">Zhang, Z., <strong>Lee, H. W.</strong>, Chen, Y., &amp; Jiang, K.</div>
+      <div class="pub-venue"><em>Human Resource Management</em>, 64, 523–541 · 2025</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">Inspired to be transformational: The interplay between employee voice type and manager construal level</div>
+      <div class="pub-authors">Li, S., Johnson, R., <strong>Lee, H. W.</strong>, &amp; Scott, B.</div>
+      <div class="pub-venue"><em>Human Relations</em>, 78, 1276–1309 · 2025</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">How remote workers manage loneliness and performance: Virtual social interaction as an alternative resource management strategy</div>
+      <div class="pub-authors">Cho, S. S., Kim, S. H., Kim, S., &amp; <strong>Lee, H. W.</strong></div>
+      <div class="pub-venue"><em>Human Resource Development Quarterly</em>, 36, 155–174 · 2025</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">A regulatory focus theory perspective on the dynamics between action and power</div>
+      <div class="pub-authors">Fatimah, S., <strong>Lee, H. W.</strong>, Ferris, D. L., &amp; Young, H.</div>
+      <div class="pub-venue"><em>Journal of Applied Psychology</em>, 109, 1397–1407 · 2024</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">When conscientiousness differentially pays off: The role of incongruence between conscientiousness and black stereotype in pay inequality</div>
+      <div class="pub-authors">Park, H., Judge, T., <strong>Lee, H. W.</strong>, Chung, S., &amp; Zhan, Y.</div>
+      <div class="pub-venue"><em>Personnel Psychology</em>, 77, 997–1024 · 2024</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">Cleansing or licensing? Corporate social responsibility reconciles the competing effects of unethical pro-organizational behavior on moral self-regulation</div>
+      <div class="pub-authors">Liao, Z., Yam, K., <strong>Lee, H. W.</strong>, Johnson, R., &amp; Tang, P.</div>
+      <div class="pub-venue"><em>Journal of Management</em>, 50, 1643–1683 · 2024</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">Leaders' responses to receipt of proactive helping: Integrating theories of approach-avoidance and challenge-hindrance</div>
+      <div class="pub-authors"><strong>Lee, H. W.</strong>, Chi, N., Kim, Y. J., Lee, H., Lin, S., &amp; Johnson, R.</div>
+      <div class="pub-venue"><em>Human Relations</em>, 77, 560–590 · 2024</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">You make me anxious! Witnessing safety violations during the daily commute and at work leads to employee work withdrawal</div>
+      <div class="pub-authors">Cho, S., Kim, S. Y., <strong>Lee, H. W.</strong>, &amp; Li, A.</div>
+      <div class="pub-venue"><em>Human Resource Management</em>, 63, 207–223 · 2024</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">Organizational resilience: Leadership, operational, and individual responses to the COVID-19 pandemic</div>
+      <div class="pub-authors">Kim, J., <strong>Lee, H. W.</strong>, &amp; Chung, G. H.</div>
+      <div class="pub-venue"><em>Journal of Organizational Change Management</em>, 37, 92–115 · 2024</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">Distances and directions: An emotional journey into the recovery process</div>
+      <div class="pub-authors">Young, H., Scott, B., Ferris, L., <strong>Lee, H. W.</strong>, Awasty, N., &amp; Johnson, R.</div>
+      <div class="pub-venue"><em>Journal of Applied Psychology</em>, 109(1), 115–134 · 2024</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">The impact of leader depletion on leader performance: The mediating role of leaders' trust beliefs and employees' citizenship behaviors</div>
+      <div class="pub-authors">Haesevoets, T., De Cremer, D., De Schutter, L., van Dijke, M., Young, H. R., <strong>Lee, H. W.</strong>, Johnson, R., &amp; Chiang, J.</div>
+      <div class="pub-venue"><em>Scientific Reports</em>, 12, 1–15 · 2022</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">When CEOs are all about themselves: Perceived CEO narcissism and middle managers' workplace behaviors amid the COVID-19 pandemic</div>
+      <div class="pub-authors">Kim, J., <strong>Lee, H. W.</strong>, Gao, H., &amp; Johnson, R.</div>
+      <div class="pub-venue"><em>Journal of Applied Psychology</em>, 106, 1283–1298 · 2021</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">Positive family events facilitate effective leader behaviors at work: A within-individual investigation of family-work enrichment</div>
+      <div class="pub-authors">Lin, S., Chang, C., <strong>Lee, H. W.</strong>, &amp; Johnson, R.</div>
+      <div class="pub-venue"><em>Journal of Applied Psychology</em>, 106, 1412–1434 · 2021</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">To thine own (empowered) self be true: Aligning social hierarchy motivation and leader behavior</div>
+      <div class="pub-authors"><strong>Lee, H. W.</strong>, Hays, N., &amp; Johnson, R.</div>
+      <div class="pub-venue"><em>Journal of Applied Psychology</em>, 106, 1033–1048 · 2021</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">Serving you depletes me? A leader-centric examination of servant leadership behaviors</div>
+      <div class="pub-authors">Liao, C., <strong>Lee, H. W.</strong>, Johnson, R., &amp; Lin, S.</div>
+      <div class="pub-venue"><em>Journal of Management</em>, 47, 1185–1218 · 2021</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">Seeing from a short-term perspective: When and why daily abusive supervisor behavior yields functional and dysfunctional consequences</div>
+      <div class="pub-authors">Liao, Z., <strong>Lee, H. W.</strong>, Johnson, R., Song, Z., &amp; Liu, Y.</div>
+      <div class="pub-venue"><em>Journal of Applied Psychology</em>, 106, 377–398 · 2021</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">When lending an ear turns into mistreatment: An episodic examination of leader mistreatment in response to receipt of venting at work</div>
+      <div class="pub-authors">Rosen, C., Gabriel, A., <strong>Lee, H. W.</strong>, Koopman, J., &amp; Johnson, R.</div>
+      <div class="pub-venue"><em>Personnel Psychology</em>, 74, 175–195 · 2021</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">What does it take for voice opportunity to lead to creative performance? Supervisor listening as a boundary condition</div>
+      <div class="pub-authors">Yang, J. M., <strong>Lee, H. W.</strong>, Zheng, X., &amp; Johnson, R.</div>
+      <div class="pub-venue"><em>Journal of Business and Psychology</em>, 36, 1137–1150 · 2021</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">Mind your own break! The interactive effect of workday respite activities and mindfulness on employee outcomes via affective linkages</div>
+      <div class="pub-authors">Chong, S., Kim, Y. J., <strong>Lee, H. W.</strong>, Johnson, R., &amp; Lin, S.</div>
+      <div class="pub-venue"><em>Organizational Behavior and Human Decision Processes</em>, 159, 64–77 · 2020</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">Workforce diversity and firm performance: Relational coordination as a mediator and structural empowerment and multisource feedback as moderators</div>
+      <div class="pub-authors"><strong>Lee, H. W.</strong> &amp; Kim, E.</div>
+      <div class="pub-venue"><em>Human Resource Management</em>, 59, 5–23 · 2020</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">The benefits of receiving gratitude for helpers: A daily investigation of proactive and reactive helping at work</div>
+      <div class="pub-authors"><strong>Lee, H. W.</strong>, Bradburn, J., Johnson, R., Lin, S., &amp; Chang, C.</div>
+      <div class="pub-venue"><em>Journal of Applied Psychology</em>, 104, 197–213 · 2019</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">Effects of human resource management systems on employee proactivity and group innovation</div>
+      <div class="pub-authors"><strong>Lee, H. W.</strong>, Pak, J., Kim, S., &amp; Li, L.</div>
+      <div class="pub-venue"><em>Journal of Management</em>, 45, 819–846 · 2019</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">Boxed in by your inbox: Implications of daily email demands for managers' leadership behaviors</div>
+      <div class="pub-authors">Rosen, C., Simon, L., Gajendran, R., Johnson, R., <strong>Lee, H. W.</strong>, &amp; Lin, S.</div>
+      <div class="pub-venue"><em>Journal of Applied Psychology</em>, 104(1), 19–33 · 2019</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">Wearable Bluetooth sensors for capturing relational variables and temporal variability in relationships: A construct validation study</div>
+      <div class="pub-authors">Matusik, J., Heidl, R., Hollenbeck, J., Yu, A., <strong>Lee, H. W.</strong>, &amp; Howe, M.</div>
+      <div class="pub-venue"><em>Journal of Applied Psychology</em>, 104, 357–387 · 2019</div>
+    </li>
+
+    <li class="pub-item">
+      <div class="pub-title">Does gender diversity help teams constructively manage status conflict? An evolutionary perspective of status conflict, team psychological safety, and team creativity</div>
+      <div class="pub-authors"><strong>Lee, H. W.</strong>, Choi, J. N., &amp; Kim, S.</div>
+      <div class="pub-venue"><em>Organizational Behavior and Human Decision Processes</em>, 144, 187–199 · 2018</div>
+    </li>
+
+  </ol>
+
+  <h2 style="margin-top: 40px;">Book Chapter</h2>
+  <ul class="pub-list" style="list-style:none; padding:0;">
+    <li class="pub-item" style="padding-left: 0;">
+      <div class="pub-title">Self-control as the fuel for effective self-regulation at work: Antecedents, consequences, and boundary conditions of employee self-control</div>
+      <div class="pub-authors">Johnson, R. E., Lin, S.-H., &amp; <strong>Lee, H. W.</strong></div>
+      <div class="pub-venue">In A. J. Elliot (Ed.), <em>Advances in Motivation Science</em> (Vol. 5, pp. 87–128). Academic Press · 2018</div>
+    </li>
+  </ul>
+</section>
+
+<hr class="divider">
+
+<!-- AWARDS -->
+<section id="awards">
+  <h2>Awards &amp; Recognition</h2>
+  <div class="award-grid">
+    <div class="award-item">
+      <span class="award-year">2026</span>
+      <div>
+        <div class="award-text">Pace Setters Daniel Westerbeck Graduate Teaching Award</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <span class="award-year">2025</span>
+      <div>
+        <div class="award-text">Rising Star Early Career Award</div>
+        <div class="award-org">Network of Leadership Scholars</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <span class="award-year">2025</span>
+      <div>
+        <div class="award-text">Rising Star Award</div>
+        <div class="award-org">Association for Psychological Science</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <span class="award-year">2023</span>
+      <div>
+        <div class="award-text">Pace Setters Faculty Research Award</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <span class="award-year">—</span>
+      <div>
+        <div class="award-text">Christine A. Poon &amp; Michael F. Tweedle Faculty Award</div>
+      </div>
+    </div>
+    <div class="award-item">
+      <span class="award-year">—</span>
+      <div>
+        <div class="award-text">Inaugural Provost Scholar Assistant Professorship</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EDUCATION -->
+<section id="education">
+  <h2>Education</h2>
+  <div class="edu-list">
+    <div class="edu-item">
+      <h3>Ph.D. in Organizational Behavior and Human Resources</h3>
+      <div class="school">Michigan State University</div>
+    </div>
+    <div class="edu-item">
+      <h3>M.S. in Human Resources</h3>
+      <div class="school">Seoul National University</div>
+    </div>
+    <div class="edu-item">
+      <h3>B.A. in Business Administration</h3>
+      <div class="school">Yonsei University</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- TEACHING -->
+<section id="teaching">
+  <h2>Teaching</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Course</th>
+        <th>Title</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="code">MBA 6202</td><td>Leadership</td></tr>
+      <tr><td class="code">BUSMHR 4998</td><td>Undergraduate Research</td></tr>
+      <tr><td class="code">BUSMHR 7222</td><td>Advanced Topics in Leadership</td></tr>
+      <tr><td class="code">BUSOBA 7399</td><td>Leadership in Supply Chain Management</td></tr>
+      <tr><td class="code">BUSOBA 7398</td><td>MSCM Final-Program Experience</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>&copy; 2026 Hun Whee Lee &nbsp;·&nbsp; <a href="mailto:lee.7313@osu.edu">lee.7313@osu.edu</a></div>
+  <div>Max M. Fisher College of Business &nbsp;·&nbsp; The Ohio State University</div>
+</footer>
+
+<script>
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+  const sections = Array.from(document.querySelectorAll('section[id], div[id]'));
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('on'));
+        const a = document.querySelector(`nav a[href="#${e.target.id}"]`);
+        if (a) a.classList.add('on');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  sections.forEach(s => io.observe(s));
+</script>
+
+</body>
+</html>
