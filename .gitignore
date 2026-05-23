@@ -2,5 +2,8 @@
 *.tmp
 Untitled
 
+# Unrelated files
+tictactoe.html
+
 # Claude settings
 .claude/
