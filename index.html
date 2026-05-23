@@ -67,21 +67,49 @@
 
     /* ── HERO ── */
     .hero {
-      padding: 120px 28px 80px;
-      max-width: var(--max);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 220px;
-      gap: 48px;
+      padding: 100px 28px 72px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      gap: 0;
+    }
+
+    .photo-wrap {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin-bottom: 32px;
+    }
+
+    .photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: conic-gradient(var(--red) 0deg, #e8e8e8 120deg, var(--red) 240deg, #e8e8e8 360deg);
+      opacity: .35;
+    }
+
+    .photo-main {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top center;
+      border: 5px solid var(--white);
+      box-shadow: 0 8px 40px rgba(0,0,0,.15);
+      position: relative;
+      display: block;
     }
 
     .hero-text h1 {
-      font-size: 2.6rem;
+      font-size: 2.8rem;
       font-weight: normal;
       color: var(--dark);
-      line-height: 1.2;
+      line-height: 1.15;
       margin-bottom: 10px;
+      letter-spacing: -.01em;
     }
 
     .hero-text .subtitle {
@@ -89,23 +117,25 @@
       font-size: .95rem;
       color: var(--red);
       font-weight: 600;
-      letter-spacing: .02em;
-      margin-bottom: 6px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
     }
 
     .hero-text .inst {
       font-family: system-ui, sans-serif;
       font-size: .9rem;
       color: var(--muted);
-      margin-bottom: 28px;
-      line-height: 1.6;
+      margin-bottom: 32px;
+      line-height: 1.7;
     }
 
     .btn-row {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 10px;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .btn {
@@ -115,7 +145,7 @@
       letter-spacing: .04em;
       text-transform: uppercase;
       text-decoration: none;
-      padding: 8px 18px;
+      padding: 9px 22px;
       border-radius: 3px;
       transition: all .18s;
     }
@@ -138,38 +168,11 @@
       font-family: system-ui, sans-serif;
       font-size: .83rem;
       color: var(--muted);
-      line-height: 1.8;
+      line-height: 2;
     }
 
     .contact-info a { color: var(--muted); text-decoration: none; }
     .contact-info a:hover { color: var(--red); }
-
-    /* Photos */
-    .hero-photos {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .photo-main {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: top;
-      border: 4px solid var(--white);
-      box-shadow: 0 4px 24px rgba(0,0,0,.12);
-    }
-
-    .photo-secondary {
-      width: 140px;
-      height: 100px;
-      border-radius: 8px;
-      object-fit: cover;
-      object-position: top;
-      box-shadow: 0 2px 12px rgba(0,0,0,.1);
-    }
 
     /* ── DIVIDER ── */
     .divider {
@@ -442,15 +445,8 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding-top: 100px;
-      }
-      .hero-photos { flex-direction: row; justify-content: center; }
-      .photo-main { width: 150px; height: 150px; }
-      .photo-secondary { width: 100px; height: 72px; }
-      .btn-row { justify-content: center; }
+      .photo-wrap { width: 220px; height: 220px; }
+      .photo-main { width: 220px; height: 220px; }
       .hero-text h1 { font-size: 2rem; }
       nav .brand { display: none; }
       nav a { padding: 14px 8px; font-size: .75rem; }
@@ -476,6 +472,10 @@
 
 <!-- HERO -->
 <div id="home" class="hero">
+  <div class="photo-wrap">
+    <img class="photo-main" src="hunlee.jpg" alt="Hun Whee Lee">
+  </div>
+
   <div class="hero-text">
     <h1>Hun Whee Lee</h1>
     <p class="subtitle">Associate Professor &amp; Denman Scholar</p>
@@ -493,14 +493,10 @@
     </div>
 
     <div class="contact-info">
-      <a href="mailto:lee.7313@osu.edu">lee.7313@osu.edu</a><br>
-      614-688-0278<br>
+      <a href="mailto:lee.7313@osu.edu">lee.7313@osu.edu</a> &nbsp;·&nbsp;
+      614-688-0278 &nbsp;·&nbsp;
       Fisher Hall, 2100 Neil Ave, Columbus, OH 43210
     </div>
-  </div>
-
-  <div class="hero-photos">
-    <img class="photo-main" src="hunlee.jpg" alt="Hun Whee Lee">
   </div>
 </div>
 
@@ -538,10 +534,10 @@
   <h2>Research</h2>
 
   <div class="pills">
+    <span class="pill">Leadership</span>
+    <span class="pill">Empowerment</span>
+    <span class="pill">Proactivity</span>
     <span class="pill">Artificial Intelligence</span>
-    <span class="pill">Ethics &amp; Leadership</span>
-    <span class="pill">Human Resources Management</span>
-    <span class="pill">Organizational Behavior</span>
   </div>
 
   <ul class="role-list">
@@ -559,11 +555,8 @@
     </li>
     <li class="role-item">
       <div class="rtitle">Editorial Board</div>
-      <div class="rorg">Organizational Behavior and Human Decision Processes</div>
-    </li>
-    <li class="role-item">
-      <div class="rtitle">Editorial Board</div>
       <div class="rorg">Journal of Applied Psychology</div>
+      <div class="rorg">Organizational Behavior and Human Decision Processes</div>
     </li>
   </ul>
 </section>
@@ -751,14 +744,6 @@
 
   </ol>
 
-  <h2 style="margin-top: 40px;">Book Chapter</h2>
-  <ul class="pub-list" style="list-style:none; padding:0;">
-    <li class="pub-item" style="padding-left: 0;">
-      <div class="pub-title">Self-control as the fuel for effective self-regulation at work: Antecedents, consequences, and boundary conditions of employee self-control</div>
-      <div class="pub-authors">Johnson, R. E., Lin, S.-H., &amp; <strong>Lee, H. W.</strong></div>
-      <div class="pub-venue">In A. J. Elliot (Ed.), <em>Advances in Motivation Science</em> (Vol. 5, pp. 87–128). Academic Press · 2018</div>
-    </li>
-  </ul>
 </section>
 
 <hr class="divider">
