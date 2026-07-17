@@ -455,15 +455,320 @@
     footer a { color: #ccc; text-decoration: none; }
     footer a:hover { color: var(--white); }
 
+    /* ── STUDENT QUOTES ── */
+    .section-sub {
+      font-family: system-ui, sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 40px 0 20px;
+    }
+
+    .quotes-grid { display: grid; gap: 14px; }
+
+    .quote-card {
+      padding: 18px 22px;
+      border-left: 3px solid var(--red);
+      background: var(--red-soft);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .quote-text {
+      font-size: .93rem;
+      color: var(--body);
+      font-style: italic;
+      line-height: 1.75;
+      margin-bottom: 8px;
+    }
+
+    .quote-attr {
+      font-family: system-ui, sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    /* ── MEDIA ── */
+    .media-list { list-style: none; }
+
+    .media-item {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .media-item:last-child { border-bottom: none; }
+
+    .media-outlet {
+      font-family: system-ui, sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+
+    .media-title {
+      font-size: .97rem;
+      color: var(--dark);
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .media-title a {
+      color: var(--dark);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color .15s, border-color .15s;
+    }
+
+    .media-title a:hover { color: var(--red); border-bottom-color: var(--red); }
+
+    .media-date {
+      font-family: system-ui, sans-serif;
+      font-size: .83rem;
+      color: var(--muted);
+    }
+
+    /* ── PRESENTATIONS ── */
+    .pres-list { list-style: none; display: grid; gap: 16px; }
+
+    .pres-item {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .pres-item:hover {
+      border-color: var(--red);
+      box-shadow: 0 4px 20px rgba(187,0,0,.08);
+    }
+
+    .pres-tag {
+      font-family: system-ui, sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+
+    .pres-title {
+      font-size: .97rem;
+      color: var(--dark);
+      font-weight: 600;
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+
+    .pres-title a {
+      color: var(--dark);
+      text-decoration: none;
+      transition: color .15s;
+    }
+
+    .pres-title a:hover { color: var(--red); }
+
+    .pres-desc {
+      font-size: .9rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .pres-link {
+      font-family: system-ui, sans-serif;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--red);
+      text-decoration: none;
+      letter-spacing: .04em;
+    }
+
+    .pres-link:hover { text-decoration: underline; }
+
+    /* ── STAT BAR ── */
+    .stat-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      margin: 32px 0 40px;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .stat-num {
+      font-family: system-ui, sans-serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--red);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: system-ui, sans-serif;
+      font-size: .84rem;
+      color: var(--muted);
+    }
+
+    /* ── SERVICE CARDS ── */
+    .service-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .service-card {
+      padding: 28px 32px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .service-card:hover {
+      border-color: var(--red);
+      box-shadow: 0 4px 20px rgba(187,0,0,.08);
+    }
+
+    .service-number {
+      font-family: system-ui, sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+
+    .service-card h3 {
+      font-family: system-ui, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .service-card p {
+      font-size: .97rem;
+      color: var(--body);
+      line-height: 1.75;
+      margin-bottom: .75em;
+    }
+
+    .service-card p:last-child { margin-bottom: 0; }
+
+    .service-card .pills { margin-top: 18px; margin-bottom: 0; }
+
+    /* ── PULL QUOTE STAT ── */
+    .pull-stat {
+      margin: 20px 0;
+      padding: 18px 24px;
+      border-left: 3px solid var(--red);
+      background: var(--red-soft);
+      border-radius: 0 4px 4px 0;
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+
+    .pull-stat .pull-num {
+      font-family: system-ui, sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--red);
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .pull-stat .pull-label {
+      font-family: system-ui, sans-serif;
+      font-size: .9rem;
+      color: var(--body);
+      line-height: 1.5;
+    }
+
+    /* ── PARTNER GRID ── */
+    .partner-grid { display: grid; gap: 0; }
+
+    .partner-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 20px;
+      align-items: baseline;
+    }
+
+    .partner-item:last-child { border-bottom: none; }
+
+    .partner-name {
+      font-family: system-ui, sans-serif;
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--dark);
+      min-width: 160px;
+      flex-shrink: 0;
+    }
+
+    .partner-desc {
+      font-size: .93rem;
+      color: var(--muted);
+    }
+
+    /* ── CTA BLOCK ── */
+    .cta-block {
+      background: var(--red-soft);
+      border-radius: 8px;
+      padding: 40px 36px;
+      margin-top: 48px;
+    }
+
+    .cta-block h2 {
+      font-family: system-ui, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 12px;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .cta-block p {
+      font-size: .97rem;
+      color: var(--body);
+      margin-bottom: 24px;
+    }
+
+    .cta-block .btn-row { justify-content: flex-start; margin-bottom: 0; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       .photo-wrap { width: 220px; height: 220px; }
       .photo-main { width: 220px; height: 220px; }
       .hero-text h1 { font-size: 2rem; }
       nav .brand { display: none; }
+      nav ul { overflow-x: auto; padding: 0 12px; }
       nav a { padding: 14px 8px; font-size: .75rem; }
       .card-list li { flex-direction: column; gap: 4px; }
       .card-list .label { min-width: unset; }
+      .pres-item { padding: 16px; }
+      .service-card { padding: 20px; }
+      .cta-block { padding: 28px 22px; }
+      .stat-bar { gap: 28px; }
+      .stat-num { font-size: 2rem; }
+      .partner-item { flex-direction: column; gap: 4px; }
+      .partner-name { min-width: unset; }
     }
   </style>
 </head>
@@ -478,6 +783,9 @@
     <li><a href="#publications">Publications</a></li>
     <li><a href="#awards">Awards</a></li>
     <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#media">Media</a></li>
+    <li><a href="#presentations">Presentations</a></li>
+    <li><a href="#collaborate">Collaborate</a></li>
     <li><a href="mailto:lee.7313@osu.edu">Contact</a></li>
   </ul>
 </nav>
@@ -831,21 +1139,245 @@
 <!-- TEACHING -->
 <section id="teaching">
   <h2>Teaching</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Course</th>
-        <th>Title</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td class="code">MBA 6202</td><td>Leadership</td></tr>
-      <tr><td class="code">BUSMHR 4998</td><td>Undergraduate Research</td></tr>
-      <tr><td class="code">BUSMHR 7222</td><td>Advanced Topics in Leadership</td></tr>
-      <tr><td class="code">BUSOBA 7399</td><td>Leadership in Supply Chain Management</td></tr>
-      <tr><td class="code">BUSOBA 7398</td><td>MSCM Final-Program Experience</td></tr>
-    </tbody>
-  </table>
+  <p>
+    Dr. Lee's teaching is guided by a clear philosophy: graduate education should help professionals make better
+    decisions by translating rigorous scholarship into practical and ethical action. Grounded in evidence-based
+    management, he helps students understand leadership through current scientific research while developing the
+    judgment to apply that evidence thoughtfully in complex organizational contexts. His experiential pedagogy and
+    guided reflection connect theory directly to students' lived work experiences.
+  </p>
+  <p>
+    A signature feature of his teaching is the Leadership Action Project, which moves beyond exams and abstract
+    cases by asking students to address real workplace challenges. Using a Triangulation of Evidence framework,
+    students integrate peer-reviewed research, expert and peer insights, and internal organizational data to
+    diagnose problems and propose evidence-based solutions. In doing so, they learn not only to study leadership
+    but to practice it&mdash;developing skills in data-driven persuasion, strategic influence, and organizational
+    change. Dr. Lee also creates an inclusive, collaborative classroom where diverse perspectives are valued,
+    active participation is expected, and professional confidence grows through mutual respect and peer learning.
+  </p>
+  <p>
+    His commitment to graduate education is reflected in his receipt of the 2026 Pace Setters Faculty Graduate
+    Teaching Award, Fisher College's highest honor for graduate teaching.
+  </p>
+
+  <p class="section-sub">What Students Say</p>
+  <div class="quotes-grid">
+
+    <div class="quote-card">
+      <p class="quote-text">"Professor Lee's kindness and positivity are unmatched. He is beyond prepared for each class, and he cares very much about his students learning and developing. The higher education sector needs more professors like Hun Lee."</p>
+      <div class="quote-attr">MBA 6202 &nbsp;&middot;&nbsp; Spring 2025</div>
+    </div>
+
+    <div class="quote-card">
+      <p class="quote-text">"Dr. Lee was a fantastic professor! His course was engaging and fun. It was organized extremely well &mdash; materials were easy to find, lectures and slides were easy to follow, and assignments were spaced out very well. He was very responsive to emails and provided helpful guidance. I loved this class!"</p>
+      <div class="quote-attr">MBA 6202 &nbsp;&middot;&nbsp; Spring 2025</div>
+    </div>
+
+    <div class="quote-card">
+      <p class="quote-text">"One of the most interactive and engaging classes of my program. Very relevant!"</p>
+      <div class="quote-attr">BUSOBA 7398 &nbsp;&middot;&nbsp; Spring 2025</div>
+    </div>
+
+    <div class="quote-card">
+      <p class="quote-text">"It was obvious that Dr. Lee truly cared about student learning and our ability to translate what we learned in class into practice. He was an excellent professor, and I am grateful to have taken this course."</p>
+      <div class="quote-attr">MBA 6202 &nbsp;&middot;&nbsp; Spring 2026</div>
+    </div>
+
+    <div class="quote-card">
+      <p class="quote-text">"This is one of the best classes and instructors I have had so far. Dr. Lee is such a great professor. His teaching methods are engaging. He is so kind and approachable. I learned a lot from his instruction, and I really feel like his lessons will shape me into a better leader."</p>
+      <div class="quote-attr">MBA 6202 &nbsp;&middot;&nbsp; Spring 2026</div>
+    </div>
+
+    <div class="quote-card">
+      <p class="quote-text">"I felt Professor Hun Lee provided a comprehensive 360-degree learning experience. He genuinely cares about his students and is committed to making a positive impact on their future endeavors."</p>
+      <div class="quote-attr">BUSMHR 7222 &nbsp;&middot;&nbsp; Spring 2026</div>
+    </div>
+
+    <div class="quote-card">
+      <p class="quote-text">"I loved the way Prof. Lee engaged our group and encouraged our participation. I will absolutely use what I learned in the class in the future! He clearly loves teaching and wants to improve. This really makes a difference. I truly enjoyed this class."</p>
+      <div class="quote-attr">BUSOBA 7399 &nbsp;&middot;&nbsp; Spring 2026</div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- MEDIA -->
+<section id="media">
+  <h2>Media &amp; Press</h2>
+  <p>
+    My research has been covered by major news outlets including the Harvard Business Review, the Wall Street Journal,
+    and the New York Times. Below is a selection of press features.
+  </p>
+  <ul class="media-list">
+    <li class="media-item">
+      <div class="media-outlet">WBNS 10TV</div>
+      <div class="media-title"><a href="https://www.10tv.com/amp/article/tech/jobs-artificial-intelligence/530-16510c47-ad4e-4ce1-b7f6-2ca792f9ad3e" target="_blank">Jobs that AI Can't Do</a></div>
+      <div class="media-date">July 10, 2023</div>
+    </li>
+  </ul>
+</section>
+
+<hr class="divider">
+
+<!-- PRESENTATIONS -->
+<section id="presentations">
+  <h2>Presentations &amp; Slides</h2>
+  <p>
+    Interactive slide decks from selected talks and conferences, made publicly available for anyone
+    curious about the research.
+  </p>
+  <ul class="pres-list">
+    <li class="pres-item">
+      <div class="pres-tag">Research Presentation</div>
+      <div class="pres-title"><a href="https://hunwheelee.github.io/presentation/" target="_blank">The Paradox of Structural Empowerment</a></div>
+      <div class="pres-desc">
+        When organizations give employees more autonomy and resources, the results are not always what
+        leaders expect. This talk explores how structural empowerment can paradoxically fuel entitlement
+        and undermine cooperation — and what leaders can do about it.
+      </div>
+      <a class="pres-link" href="https://hunwheelee.github.io/presentation/" target="_blank">View Slides &rarr;</a>
+    </li>
+  </ul>
+</section>
+
+<hr class="divider">
+
+<!-- COLLABORATE -->
+<section id="collaborate">
+  <h2>Collaborate</h2>
+  <p>
+    Dr. Lee partners with organizations and educational institutions to translate rigorous research
+    on leadership, motivation, and organizational behavior into practical solutions. His work is
+    grounded in evidence-based management: helping leaders and organizations make better decisions
+    by combining scientific research, organizational data, and real-world experience.
+  </p>
+  <div class="pills">
+    <span class="pill">Leadership Development</span>
+    <span class="pill">Research Consulting</span>
+    <span class="pill">AI &amp; Technology</span>
+    <span class="pill">Organizational Change</span>
+    <span class="pill">Leadership Assessments</span>
+  </div>
+
+  <div class="stat-bar">
+    <div class="stat-item">
+      <span class="stat-num">1,000+</span>
+      <span class="stat-label">leaders assessed in the U.S.</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">3</span>
+      <span class="stat-label">collaboration types offered</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">4+</span>
+      <span class="stat-label">organizational partners</span>
+    </div>
+  </div>
+
+  <p class="section-sub">What We Can Do Together</p>
+
+  <div class="service-grid">
+
+    <div class="service-card">
+      <div class="service-number">01</div>
+      <h3>Research Consulting</h3>
+      <p>
+        Dr. Lee works with organizations to diagnose workplace challenges, design evidence-based
+        interventions, and generate actionable insights from organizational data. His consulting
+        approach is especially valuable for organizations seeking to better understand leadership,
+        employee motivation, engagement, collaboration, organizational change, and the human side
+        of technology and AI adoption.
+      </p>
+      <p>
+        Past research partners have included organizations such as CJ and Hyundai Mobis, where
+        Dr. Lee has collaborated on projects connecting academic research with pressing organizational needs.
+      </p>
+      <div class="pills">
+        <span class="pill">Leadership</span>
+        <span class="pill">Motivation</span>
+        <span class="pill">Engagement</span>
+        <span class="pill">AI Adoption</span>
+        <span class="pill">Org Change</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-number">02</div>
+      <h3>Specialized Leadership Education</h3>
+      <p>
+        Dr. Lee designs and delivers customized leadership education programs for professional and
+        academic audiences. These programs help participants develop a deeper understanding of
+        leadership while building practical skills in communication, influence, decision-making,
+        and organizational change.
+      </p>
+      <p>
+        Examples include his leadership curriculum developed for Honda employees and customized
+        leadership education programs for academic leaders at a university. Each program is tailored
+        to the audience's context, combining research-based frameworks, experiential learning,
+        reflection, and applied exercises.
+      </p>
+      <div class="pills">
+        <span class="pill">Corporate</span>
+        <span class="pill">Academic</span>
+        <span class="pill">Executive</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-number">03</div>
+      <h3>Leadership Assessments</h3>
+      <p>
+        Dr. Lee provides leadership assessments that help individuals and organizations better
+        understand leadership strengths, development opportunities, and growth pathways.
+      </p>
+      <div class="pull-stat">
+        <span class="pull-num">1,000+</span>
+        <span class="pull-label">leaders assessed across the United States</span>
+      </div>
+      <p>
+        As Research Director of the Fisher Leadership Initiative, Dr. Lee has developed a principled
+        leadership assessment measure (in collaboration with Dr. Bennett Tepper) designed to evaluate
+        leadership through a research-based lens. These assessments can be incorporated into executive
+        education, leadership development programs, coaching conversations, and organizational talent
+        initiatives.
+      </p>
+    </div>
+
+  </div>
+
+  <p class="section-sub">Past Partners &amp; Programs</p>
+  <div class="partner-grid">
+    <div class="partner-item">
+      <div class="partner-name">CJ</div>
+      <div class="partner-desc">Research consulting — connecting academic findings to organizational challenges</div>
+    </div>
+    <div class="partner-item">
+      <div class="partner-name">Hyundai Mobis</div>
+      <div class="partner-desc">Research consulting — applied organizational behavior research</div>
+    </div>
+    <div class="partner-item">
+      <div class="partner-name">Honda</div>
+      <div class="partner-desc">Customized leadership education program for employees</div>
+    </div>
+    <div class="partner-item">
+      <div class="partner-name">Academic Leadership Program</div>
+      <div class="partner-desc">University-level leadership education for academic leaders</div>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <h2>Interested in Working Together?</h2>
+    <p>
+      If you are interested in exploring a collaboration — whether research consulting, leadership
+      education, or assessments — Dr. Lee welcomes the conversation.
+    </p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="mailto:lee.7313@osu.edu">Get in Touch</a>
+      <a class="btn btn-outline" href="Lee-CV_May_2026_Profile.pdf" target="_blank">View CV</a>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
